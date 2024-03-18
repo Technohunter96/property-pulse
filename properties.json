@@ -1,7 +1,5 @@
 [
   {
-    "_id": "1",
-    "owner": "1",
     "name": "Boston Commons Retreat",
     "type": "Apartment",
     "description": "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
@@ -384,7 +382,6 @@
   },
   {
     "_id": "10",
-    "owner": "7",
     "name": "Historic Downtown Loft",
     "type": "Apartment",
     "description": "Step back in time with a stay in this historic downtown loft.",

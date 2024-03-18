@@ -1,30 +1,30 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 import {
   FaBed,
   FaBath,
   FaRulerCombined,
   FaMoneyBill,
   FaMapMarker,
-} from "react-icons/fa"
+} from "react-icons/fa";
 
 const PropertyCard = ({ property }) => {
   const getRateDisplay = () => {
-    const { rates } = property
+    const { rates } = property;
 
     if (rates.monthly) {
-      return `${rates.monthly.toLocaleString("en-US")}/mo`
+      return `${rates.monthly.toLocaleString("en-US")}/mo`;
     } else if (rates.weekly) {
-      return `${rates.weekly.toLocaleString("en-US")}/wk`
+      return `${rates.weekly.toLocaleString("en-US")}/wk`;
     } else if (rates.nightly) {
-      return `${rates.nightly.toLocaleString("en-US")}/night`
+      return `${rates.nightly.toLocaleString("en-US")}/night`;
     }
-  }
+  };
 
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
-        src={`/images/properties/${property.images[0]}`}
+        src={property.images[0]}
         alt=""
         height={0}
         width={0}
@@ -95,6 +95,6 @@ const PropertyCard = ({ property }) => {
         </div>
       </div>
     </div>
-  )
-}
-export default PropertyCard
+  );
+};
+export default PropertyCard;
