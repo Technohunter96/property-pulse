@@ -4,6 +4,7 @@ import { getSessionUser } from "@/utils/getSessionUser";
 
 export const dynamic = "force-dynamic";
 
+// POST /api/bookmarks/check - Check if property is bookmarked by user to display correct button state
 export const POST = async (request) => {
   try {
     await connectDB();
