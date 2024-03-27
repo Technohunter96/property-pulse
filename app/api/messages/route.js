@@ -36,7 +36,7 @@ export const GET = async (request) => {
 
     const messages = [...unreadMessages, ...readMessages];
 
-    return new Response(JSON.stringify(messages), { status: 200 });
+    return Response.json(messages);
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });
@@ -82,9 +82,7 @@ export const POST = async (request) => {
 
     await newMessage.save();
 
-    return new Response(JSON.stringify({ message: "Message sent" }), {
-      status: 200,
-    });
+    return Response.json({ message: "Message sent" });
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });

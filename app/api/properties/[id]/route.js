@@ -62,7 +62,7 @@ export const DELETE = async (request, { params }) => {
 
     await property.deleteOne();
 
-    return new Response("Property Deleted", { status: 200 });
+    return Response.json("Property Deleted");
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });
@@ -134,9 +134,7 @@ export const PUT = async (request, { params }) => {
     // Update property in database
     const updatedProperty = await Property.findByIdAndUpdate(id, propertyData);
 
-    return new Response(JSON.stringify(updatedProperty), {
-      status: 200,
-    });
+    return Response.json(updatedProperty);
   } catch (error) {
     return new Response("Failed to add property", { status: 500 });
   }
