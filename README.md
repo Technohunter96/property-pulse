@@ -2,7 +2,7 @@
 
 > A web application to help you find your next rental property.
 
-"This is the project I created along with the [Next 14 From Scratch Course](https://www.traversymedia.com/nextjs-from-scratch) course by Traversy Media." 
+"This is the project I created along with the [Next 14 From Scratch Course](https://www.traversymedia.com/nextjs-from-scratch) by Traversy Media." 
 
 <img src="/public/images/screen.jpg" />
 
