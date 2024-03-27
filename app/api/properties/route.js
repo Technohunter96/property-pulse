@@ -46,6 +46,7 @@ export const POST = async (request) => {
 
     // Access all values from amenities and images
     const amenities = formData.getAll("amenities");
+
     const images = formData
       .getAll("images")
       .filter((image) => image.name !== "");
@@ -111,10 +112,6 @@ export const POST = async (request) => {
     return Response.redirect(
       `${process.env.NEXTAUTH_URL}/properties/${newProperty._id}`
     );
-
-    // return new Response(JSON.stringify({ message: "Success" }), {
-    //   status: 200,
-    // });
   } catch (error) {
     return new Response("Failed to add property", { status: 500 });
   }

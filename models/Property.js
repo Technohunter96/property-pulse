@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose"
+import { Schema, model, models } from "mongoose";
 
 const PropertySchema = new Schema(
   {
@@ -82,11 +82,14 @@ const PropertySchema = new Schema(
       },
     },
 
-    images: [
-      {
-        type: String,
+    images: {
+      type: [String],
+      validate: {
+        validator: (v) => v.length <= 4,
+        message: (props) =>
+          `The images array can contain a maximum of 4 images, but got ${props.value.length}`,
       },
-    ],
+    },
 
     is_featured: {
       type: Boolean,
@@ -96,8 +99,8 @@ const PropertySchema = new Schema(
   {
     timestamps: true,
   }
-)
+);
 
-const Property = models.Property || model("Property", PropertySchema)
+const Property = models.Property || model("Property", PropertySchema);
 
-export default Property
+export default Property;
