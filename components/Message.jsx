@@ -67,7 +67,7 @@ const Message = ({ message }) => {
 
       <ul className="mt-4">
         <li>
-          <strong>Name:</strong> {message.sender.username}
+          <strong>Name:</strong> {message.name}
         </li>
 
         <li>
