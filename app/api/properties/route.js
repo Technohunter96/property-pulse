@@ -8,9 +8,21 @@ export const GET = async (request) => {
   try {
     await connectDB();
 
-    const properties = await Property.find({});
+    const page = request.nextUrl.searchParams.get("page") || 1;
+    const pageSize = request.nextUrl.searchParams.get("pageSize") || 6;
 
-    return Response.json(properties);
+    const skip = (page - 1) * pageSize; // index is from 0, so at 0 index there wouldn't be skipped any properties, at page 2 it's (2-1) * pageSize, so there would be skipped pageSize amount of properties (from url or default )
+
+    const total = await Property.countDocuments({});
+
+    const properties = await Property.find({}).skip(skip).limit(pageSize);
+
+    const result = {
+      total,
+      properties,
+    };
+
+    return Response.json(result);
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });

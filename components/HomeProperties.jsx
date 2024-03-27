@@ -1,14 +1,14 @@
-import Link from "next/link"
-import PropertyCard from "@/components/PropertyCard"
-import { fetchProperties } from "@/utils/requests"
+import Link from "next/link";
+import PropertyCard from "@/components/PropertyCard";
+import { fetchProperties } from "@/utils/requests";
 
 const HomeProperties = async () => {
-  const properties = await fetchProperties()
+  const data = await fetchProperties();
 
   // Sorting it randomly, so with every refresh there will be 3 different properties
-  const recentProperties = properties
+  const recentProperties = data.properties
     .sort(() => Math.random() - Math.random())
-    .slice(0, 3)
+    .slice(0, 3);
 
   return (
     <>
@@ -38,6 +38,6 @@ const HomeProperties = async () => {
         </Link>
       </section>
     </>
-  )
-}
-export default HomeProperties
+  );
+};
+export default HomeProperties;
