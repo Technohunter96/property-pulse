@@ -80,6 +80,14 @@ Rename the `env.example` file to `.env` and fill in the following environment va
   ```bash
   openssl rand -base64 32
   ```
+- If SSL is not installed on your PC, put this into your console it will do the same work:
+  ```bash
+  $randomBytes = New-Object byte[] 32
+$randomNumberGenerator = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+$randomNumberGenerator.GetBytes($randomBytes)
+$base64String = [Convert]::ToBase64String($randomBytes)
+$base64String
+  ```
 - Get your Cloudinary cloud name, API key, and API secret from your Cloudinary account and add them to `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET`.
 - Get your Mapbox token from your Mapbox account and add it to `NEXT_PUBLIC_MAPBOX_TOKEN`.
 - Get your Google Geocoding API key from your Google console account and add it to `NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY`.
